@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>mcpdemo Chat</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        #chatbox { width: 100%; height: 300px; border: 1px solid #ccc;
+                   padding: 10px; overflow-y: scroll; }
+        #input { width: 80%; }
+        #sendBtn { width: 80px; }
+    </style>
+</head>
+<body>
+
+<h2>mcpdemo Chat</h2>
+
+<div id="chatbox"></div><br>
+
+<input type="text" id="input" placeholder="Type your message…" />
+<button id="sendBtn">Send</button>
+
+<script>
+    function append(text) {
+        var box = document.getElementById("chatbox");
+        box.innerHTML += text + "<br>";
+        box.scrollTop = box.scrollHeight;
+    }
+
+    document.getElementById("sendBtn").onclick = function() {
+        var msg = document.getElementById("input").value;
+        if (!msg) return;
+
+        append("<b>You:</b> " + msg);
+
+        var xhr = new XMLHttpRequest();
+        xhr.open("POST", "/chat", true);
+        xhr.onload = function() {
+            append("<b>AI:</b> " + xhr.responseText);
+        };
+
+        xhr.send(msg);
+
+        document.getElementById("input").value = "";
+    };
+</script>
+
+</body>
+</html>
