@@ -7,10 +7,10 @@ import org.eclipse.jetty.servlet.ServletHolder;
 
 public class WebServer {
 
-    private int port;
+    private int port=8078;
 
-    public WebServer(int portKey) {
-        this.port = portKey;
+    public WebServer(int _port) {
+        port =_port;
     }
 
     public void start() throws Exception {
@@ -35,4 +35,6 @@ public class WebServer {
         server.start();
         server.join();
     }
+    
+    
 }
