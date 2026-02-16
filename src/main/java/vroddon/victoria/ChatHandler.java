@@ -1,4 +1,4 @@
-package vroddon.mcpdemo;
+package vroddon.victoria;
 
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;

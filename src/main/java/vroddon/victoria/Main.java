@@ -1,4 +1,4 @@
-package vroddon.mcpdemo;
+package vroddon.victoria;
 
 import org.apache.commons.cli.*;
 
