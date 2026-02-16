@@ -8,11 +8,9 @@ import org.eclipse.jetty.servlet.ServletHolder;
 public class WebServer {
 
     private int port;
-    private String apiKey;
 
-    public WebServer(int port, String apiKey) {
+    public WebServer(int portKey) {
         this.port = port;
-        this.apiKey = apiKey;
     }
 
     public void start() throws Exception {
@@ -29,7 +27,7 @@ public class WebServer {
         handler.addServlet(new ServletHolder("default", new org.eclipse.jetty.servlet.DefaultServlet()), "/");
 
         // Chat API servlet
-        handler.addServlet(new ServletHolder(new ChatHandler(apiKey)), "/chat");
+        handler.addServlet(new ServletHolder(new ChatHandler()), "/chat");
 
         server.setHandler(handler);
 
