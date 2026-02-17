@@ -18,7 +18,7 @@ public class WebServer {
         Server server = new Server(port);
 
         ServletContextHandler handler = new ServletContextHandler(ServletContextHandler.SESSIONS);
-        handler.setContextPath("/victoria");        
+        handler.setContextPath("/");        
         
 //vvv        ServletContextHandler handler = new ServletContextHandler();
 //vvv        handler.setContextPath("/");
